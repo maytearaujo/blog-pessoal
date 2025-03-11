@@ -38,6 +38,18 @@ public class Postagem {
 	@JsonIgnoreProperties("postagem") //Evita um looping infinito
 	private Tema tema; // Adicionando o objeto Tema (id, descrição)
 
+	@ManyToOne // Classe postagem muitos : classe usuario um
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;	
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Tema getTema() {
 		return tema;
 	}
